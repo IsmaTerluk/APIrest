@@ -22,14 +22,15 @@ function editAlumno(){
         body: JSON.stringify(alu)
       })
       .catch(error => console.error('Unable to update item.', error));
-    
-      closeModal();
+      
+      closeModalEdit();
 
-      getAllAlumnos("block");
+     
 }
 
 
 //Metodo que cierra el modal
-function closeModal() {
+function closeModalEdit() {
     $('#editModal').modal('hide');
+    getAllAlumnos();
 }

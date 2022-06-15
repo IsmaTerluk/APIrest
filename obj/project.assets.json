@@ -877,11 +877,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3° Año\\1er Semestre\\Programacion Web II\\APIprueba\\APIprueba.csproj",
+      "projectUniqueName": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\APIprueba.csproj",
       "projectName": "APIprueba",
-      "projectPath": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3° Año\\1er Semestre\\Programacion Web II\\APIprueba\\APIprueba.csproj",
+      "projectPath": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\APIprueba.csproj",
       "packagesPath": "C:\\Users\\ismat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3° Año\\1er Semestre\\Programacion Web II\\APIprueba\\obj\\",
+      "outputPath": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ismat\\AppData\\Roaming\\NuGet\\NuGet.Config"

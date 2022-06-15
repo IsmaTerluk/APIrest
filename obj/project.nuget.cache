@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wWduzobJa/zicqDuHThzNNEbGZZsh2v2judq/DiC+YONzD3bjYFgNJiVlPjy679jSpCp7OSJVclYjdh3NQnGLw==",
+  "dgSpecHash": "4Eu64lL83XoEahKodvG8oqLEty9z+KpbRjeWsVPi4pT9+sECG/8KNxGiaKzeQn852n18uIz58+1XM39TJMNEaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3° Año\\1er Semestre\\Programacion Web II\\APIprueba\\APIprueba.csproj",
+  "projectFilePath": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\APIprueba.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ismat\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\ismat\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.4\\microsoft.entityframeworkcore.6.0.4.nupkg.sha512",
