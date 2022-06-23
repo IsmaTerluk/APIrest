@@ -5,20 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/allAlumnos.js"></script>
-    <script src="js/editAlumno.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/deleteAlumno.js"></script>
-    <script src="js/postAlumno.js"></script>
-    <script src="js/getAlumno.js"></script>
+    <script src="js/login.js"></script>
     <title>API REST</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary">
+    <nav class="navbar navbar-expand-lg mb-5" style="background-color:#3B8194;">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">API REST</a>
+            <a class="navbar-brand text-white" href="index.html">API REST</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,153 +23,34 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="html/endpoints.html">End-points</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="html/crudAlumnos.html">Crud</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <script>
-        getAllAlumnos();
-    </script>
-        
-
-    <section class="container mt-3">
-
-        <!-- Formulario para ingresar el id del alumno a obtener -->
-        <div class="container mb-4 d-flex " id="unAlumno"> 
-
-            <form action="javascript:void(0);" method="post" onsubmit="obtenerAlumno()"  style="width: 50%;">
-                <div class="d-flex">
-                    <input type="number" class="form-control rounded-pill mx-2" id="id" placeholder="Ingrese id del alumno" required>
-                    <button type="submit" class="btn btn-light rounded-pill">
-                        <i class="bi bi-search">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" fill="currentColor" class="bi bi-search" viewBox="1 -3 15 20">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg>
-                        </i>
+    <section class="container mt-5">
+        <div class="container border rounded p-3" style="width: 55%;background-color: #d1e7dd; ;">
+            <h4 class="text-center border-bottom border-4 border-white p-2 mb-4">Iniciar Sesión</h4>
+            <form action="javascript:void(0);" method="post" onsubmit="login()">
+                <input type="text" name="" id="user" placeholder="Usuario" class="form-control mb-3 fixed" required>
+                <p class="text-danger" style="display: none;" id="error_user"> <strong>Usuario incorrecto</strong></p>
+                <input type="password" name="" id="pass" placeholder="Contraseña" class="form-control  mb-3" required>
+                <p class="text-danger" style="display: none;" id="error_pass"><strong>Contraseña incorrecta</strong></p>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark">
+                        Acceder
                     </button>
                 </div>
+                
             </form>
-
-
-            <div style="width: 50%" class="d-flex justify-content-center">
-                <!-- Cards que se muestra si existe el ID alumno -->
-                <div class="container border border-secondary p-2 rounded border-success" style="width: 50%; display:none;" id="alumno">
-                    <div class="d-flex flex-column text-center">
-                        <h5 class="border-bottom border-2"> <span id="gname"> </span> </h5>
-                        <p> <b>Carrera:</b> <span id="gcarrera"></span> </p>
-                        <p> <b>Registro: </b> <span id="gregistro"></span> </p>
-                    </div>
-                </div>
-            
-                <!-- Mensaje de error en caso que el ID alumno falle -->
-                <div class="text-center" style="display:none;" id="msj_error">
-                    <p class="text-danger"> ID alumno invalido  </p>
-                </div>
-            </div>
-            
-
-            
         </div>
-
-        <div class="container mb-5 ">
-            <table class="table border" id="getAlumnos">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre/Apellido</th>
-                        <th scope="col">Carrera</th>
-                        <th scope="col">Registro</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody class="text-center" id="section-all-alumnos"></tbody>
-            </table> 
-        </div>
-
-        <div class="mb-2  text-center">
-            <button class="btn btn-outline-success rounded-pill" data-bs-toggle="modal" data-bs-target="#insertModal">
-                Agregar nuevo alumno
-            </button>
-        </div>
-
+        
     </section>
 
-
-<!-- Modal Edit alumno -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar alumno</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="container mt-3">
-            <form action="javascript:void(0);" method="post" onsubmit="editAlumno()" class="container">
-            <div class="d-flex justify-content-around mb-3">
-                <input type="text" class="form-control" id="ename" placeholder="Nombre" required style="width: 45%;">
-                <input type="text" class="form-control" id="elastname" placeholder="Apellido" style="width: 45%;"required>
-            </div>
-            <div class="d-flex justify-content-around mb-3">
-                <select class="form-select" required style="width: 45%;" id="ecarrera">
-                <option selected>Carrera</option>
-                <option value="LCC">LCC</option>
-                <option value="LSI">LSI</option>
-                <option value="TUPW">TUPW</option>
-                </select>
-                <input type="number" id="eregistro" class="form-control" placeholder="N° registro" required style="width: 45%;">
-            </div>
-
-            <input type="hidden" id="eid">
-
-            <div class="text-center mb-3">
-                <input type="submit" class="btn btn-outline-info" style="width:20%;" value="Editar">
-            </div>
-            </form>
-        </div> 
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal insert alumno -->
-<div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar alumno</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="container mt-3">
-                <form action="javascript:void(0);" method="post" onsubmit="postAlumno()"  class="container">
-                    <div class="d-flex justify-content-around mb-3">
-                    <input type="text" class="form-control" id="postName" placeholder="Nombre" required style="width: 45%;">
-                    <input type="text" class="form-control" id="postLastname" placeholder="Apellido" style="width: 45%;"required>
-                    </div>
-                    <div class="d-flex justify-content-around mb-3">
-                    <select class="form-select" id="postCarrera" required style="width: 45%;">
-                        <option selected>Carrera</option>
-                        <option value="LCC">LCC</option>
-                        <option value="LSI">LSI</option>
-                        <option value="TUPW">TUPW</option>
-                    </select>
-                    <input type="number" id="postRegistro" class="form-control" placeholder="N° registro" required style="width: 45%;">
-                    </div>
-                    <div class="text-center mb-3">
-                    <input type="submit" class="btn btn-outline-success rounded-pill" style="width:20%;" value="Agregar">
-                    </div>
-                </form>
-            </div> 
-        </div>
-    </div>
-</div>
-    
-
-<script>
-    getAllAlumnos();
-</script>
-    
-
-</body>
-</html>
+    <footer class="fixed-bottom"style="background-color:#3B8194;">
+        <p class="text-center text-white"> CRUD alumnos - API REST - 2020</p>
+    </footer>
+        

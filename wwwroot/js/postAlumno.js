@@ -56,7 +56,7 @@ function postAlumno(){
 //Metodo que cierra el modal
 function closeModalPost() {
     $('#insertModal').modal('hide');
-    getAllAlumnos();
+    //getAllAlumnos();
 }
 
 

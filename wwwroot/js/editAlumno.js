@@ -32,5 +32,5 @@ function editAlumno(){
 //Metodo que cierra el modal
 function closeModalEdit() {
     $('#editModal').modal('hide');
-    getAllAlumnos();
+    //getAllAlumnos();
 }

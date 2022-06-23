@@ -1,4 +1,4 @@
-const uri = 'api/Alumno';
+const uri = '../api/Alumno';
 //let allAlumnos = [];
 
 //Cuando trabajamos con metodos asincronos hay que capturar el error
