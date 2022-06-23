@@ -4,24 +4,24 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;  //Para metodos asincronos 
 
+
 namespace APIprueba.Database.Repositorie 
 {
-    public interface IAlumnoRepository
+     public interface IInscriptoRepository
     {
         //Metodo que retorna todos los alumnos
-        public Task<IEnumerable<Alumno>> GetAllAlumnos();
+        public Task<IEnumerable<Inscripto>> GetAllInscriptos();
 
         //Retorna el un unico alumno
-        Task<Alumno> GetAlumno(int matricula);
+        Task<IEnumerable<Inscripto>> GetInscripto(int matricula);
     
         //Inserta un alumno
-        Task<bool> InsertAlumno(Alumno alumno);
+        Task<bool> InsertInscripto(Inscripto Inscripto);
 
         //Actualiza un alumno
-        Task<bool> UpdateAlumno(Alumno alumno);
+        Task<bool> UpdateInscripto(Inscripto inscripto);
 
         //Elimina un alumno
-        Task<bool> DeleteAlumno(Alumno alumno);
+        Task<bool> DeleteInscripto(Inscripto inscripto);
     }
-
 }

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace APIprueba.Database.Repositorie
 {
     //Class que implementa la interface
-    public class AlumnoRepository: IAlumnoRepository
+    public class InscriptoRepository: IInscriptoRepository
     {
         //Atributo de conexion
         private PostgreSQLConfig _conecctionString;
 
-        public AlumnoRepository(PostgreSQLConfig conecctionString){
+        public InscriptoRepository(PostgreSQLConfig conecctionString){
             _conecctionString = conecctionString;
         }
 
@@ -23,71 +23,69 @@ namespace APIprueba.Database.Repositorie
         }
 
         //Metodo que retorna todos los alumnos
-        public async Task<IEnumerable<Alumno>> GetAllAlumnos(){
+        public async Task<IEnumerable<Inscripto>> GetAllInscriptos(){
             //Conexion a la base de datos
             var db = dbConnection();
             //El @ me permite escribir la query en varios renglones
             var query = @"
                         SELECT * 
-                        FROM alumnos
-                        ORDER BY matricula
+                        FROM inscriptos
                         ";
             //Le indico que me traiga una coleccion de alumnos
-            return await db.QueryAsync<Alumno>(query, new {});
+            return await db.QueryAsync<Inscripto>(query, new {});
         }
 
         //Retorna el un unico alumno
-        public async Task<Alumno> GetAlumno(int matricula){
+        public async  Task<IEnumerable<Inscripto>> GetInscripto(int matricula){
             var db = dbConnection();
             
             var query = @"
                         SELECT * 
-                        FROM alumnos 
+                        FROM inscriptos 
                         WHERE matricula = @matricula";
-            return await db.QueryFirstOrDefaultAsync<Alumno>(query, new { Matricula = matricula});
+            return await db.QueryAsync<Inscripto>(query, new { Matricula = matricula});
         }
     
         //Inserta un alumno
-        public async Task<bool> InsertAlumno(Alumno alumno){
+        public async Task<bool> InsertInscripto(Inscripto inscripto){
             var db = dbConnection();
             
             var query = @"
-                        INSERT INTO alumnos (dni, nombre, apellido,codigocarrera)
-                        VALUES(@Dni, @Nombre, @Apellido, @CodigoCarrera)";
+                        INSERT INTO inscriptos (matricula,codigocarrera, codigomateria)
+                        VALUES(@Matricula, @CodigoCarrera, @CodigoMateria)";
                 //Execute la query
-            var result = await db.ExecuteAsync(query, new { alumno.Dni, alumno.Nombre, alumno.Apellido, alumno.CodigoCarrera});
+            var result = await db.ExecuteAsync(query, new { inscripto.Matricula, inscripto.CodigoCarrera, inscripto.CodigoMateria});
 
             //Retorna verdadero si se inserto correctamente
             return result > 0;
         }
 
         //Actualiza un alumno
-        public async Task<bool> UpdateAlumno(Alumno alumno){
+        public async Task<bool> UpdateInscripto(Inscripto inscripto){
             var db = dbConnection();
             
             var query = @"
-                        UPDATE alumnos
-                        SET dni = @Dni,
-                            nombre = @Nombre,
-                            apellido = @Apellido,
-                            codigocarrera = @CodigoCarrera
+                        UPDATE inscriptos
+                        SET matricula = @Matricula,
+                            codigocarrera = @CodigoCarrera,
+                            codigomateria = @CodigoMateria
                         WHERE matricula = @Matricula;";
                 //Execute la query
-            var result = await db.ExecuteAsync(query, new { alumno.Matricula, alumno.Dni, alumno.Nombre, alumno.Apellido, alumno.CodigoCarrera});
+            var result = await db.ExecuteAsync(query, new { inscripto.Matricula, inscripto.CodigoCarrera, inscripto.CodigoMateria});
 
             //Retorna verdadero si al menos una fila fue afectada
             return result > 0;
         }
 
         //Elimina un alumno
-        public async Task<bool> DeleteAlumno(Alumno alumno){
+        public async Task<bool> DeleteInscripto(Inscripto inscripto){
             var db = dbConnection();
             
             var query = @"
-                        DELETE FROM alumnos
-                        WHERE matricula = @Matricula;";
+                        DELETE FROM inscriptos
+                        WHERE matricula = @Matricula and codigocarrera=@CodigoCarrera and codigomateria=@CodigoMateria";
                 //Execute la query
-            var result = await db.ExecuteAsync(query, new { Matricula = alumno.Matricula });
+            var result = await db.ExecuteAsync(query, new { Matricula = inscripto.Matricula , CodigoCarrera = inscripto.CodigoCarrera, CodigoMateria = inscripto.CodigoMateria});
 
             //Retorna verdadero si al menos una fila fue afectada
             return result > 0;

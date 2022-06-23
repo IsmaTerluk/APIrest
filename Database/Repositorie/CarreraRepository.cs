@@ -42,7 +42,7 @@ namespace APIprueba.Database.Repositorie
             var query = @"
                         SELECT * 
                         FROM carrera 
-                        WHERE codigocarrera = @codigocarrera";
+                        WHERE codigocarrera = @CodigoCarrera";
             return await db.QueryFirstOrDefaultAsync<Carrera>(query, new { CodigoCarrera = codigocarrera});
         }
     
