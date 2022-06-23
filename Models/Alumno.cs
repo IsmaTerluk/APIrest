@@ -6,15 +6,14 @@ namespace APIprueba.Models
 {
     public class Alumno
     {
-        public int Id { get; set; } 
+        public int Matricula { get; set; } 
 
-        public int Registro { get; set; }
+        public int Dni { get; set; }
 
         //Para que no reciba parametos nulos
-        public string? Name { get; set; } 
+        public string? Nombre { get; set; } 
 
-        public string? Lastname { get; set; }
+        public string? Apellido { get; set; }
 
-        public string? Carrera { get; set; }
     } 
 }

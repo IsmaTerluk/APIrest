@@ -6,22 +6,22 @@ using System.Threading.Tasks;  //Para metodos asincronos
 
 namespace APIprueba.Database.Repositorie 
 {
-    public interface IAlumnoRepository
+     public interface IMateriaRepository
     {
         //Metodo que retorna todos los alumnos
-        public Task<IEnumerable<Alumno>> GetAllAlumnos();
+        public Task<IEnumerable<Materia>> GetAllMaterias();
 
         //Retorna el un unico alumno
-        Task<Alumno> GetAlumno(int id);
+        Task<Materia> GetMateria(int codigocarrera, int codigomateria);
     
         //Inserta un alumno
-        Task<bool> InsertAlumno(Alumno alumno);
+        Task<bool> InsertMateria(Materia materia);
 
         //Actualiza un alumno
-        Task<bool> UpdateAlumno(Alumno alumno);
+        Task<bool> UpdateMateria(Materia materia);
 
         //Elimina un alumno
-        Task<bool> DeleteAlumno(Alumno alumno);
-    }
+        Task<bool> DeleteMateria(Materia materia);
 
+    }
 }

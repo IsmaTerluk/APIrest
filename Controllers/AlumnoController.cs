@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace APIprueba.Controllers;
 
 //Ruteo
+[ApiController]
 [Route("api/[controller]")]
-//[ApiController]
 public class AlumnoController : ControllerBase
 {
     //Aqui vamos hacer uso de esa interface
@@ -28,9 +28,9 @@ public class AlumnoController : ControllerBase
     }
 
     //Recibe un parametro que es el que agrega al parametro
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetAlumno(int id){
-       return Ok(await _alumnoRepository.GetAlumno(id));
+    [HttpGet("{matricula}")]
+    public async Task<IActionResult> GetAlumno(int matricula){
+       return Ok(await _alumnoRepository.GetAlumno(matricula));
     }
 
     [HttpPost]
@@ -50,7 +50,7 @@ public class AlumnoController : ControllerBase
        var created = await _alumnoRepository.InsertAlumno(alumno);
 
         //return un 200
-       return Created("se creo", created);
+       return Created("Se creo", created);
     }
 
     [HttpPut]
@@ -73,9 +73,9 @@ public class AlumnoController : ControllerBase
        return NoContent();
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteAlumno(int id){
-       await _alumnoRepository.DeleteAlumno( new Alumno {Id = id});
+    [HttpDelete("{matricula}")]
+    public async Task<IActionResult> DeleteAlumno(int matricula){
+       await _alumnoRepository.DeleteAlumno( new Alumno {Matricula = matricula});
        
        return NoContent();
     }

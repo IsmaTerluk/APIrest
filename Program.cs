@@ -24,6 +24,7 @@ builder.Services.AddSingleton(postgreSQLConecction);
 //De este modo inyectamos la dependencia de la coneccion y automaticamente por parametros estara enviando
 //El conecctionString 
 builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+builder.Services.AddScoped<IMateriaRepository, MateriaRepository>();
 
 
 var app = builder.Build();

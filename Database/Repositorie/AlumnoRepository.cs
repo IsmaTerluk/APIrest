@@ -29,22 +29,22 @@ namespace APIprueba.Database.Repositorie
             //El @ me permite escribir la query en varios renglones
             var query = @"
                         SELECT * 
-                        FROM public.""Alumnos"" 
-                        ORDER BY id
+                        FROM alumnos
+                        ORDER BY matricula
                         ";
             //Le indico que me traiga una coleccion de alumnos
             return await db.QueryAsync<Alumno>(query, new {});
         }
 
         //Retorna el un unico alumno
-        public async Task<Alumno> GetAlumno(int id){
+        public async Task<Alumno> GetAlumno(int matricula){
             var db = dbConnection();
             
             var query = @"
                         SELECT * 
-                        FROM public.""Alumnos"" 
-                        WHERE id = @Id";
-            return await db.QueryFirstOrDefaultAsync<Alumno>(query, new { Id = id});
+                        FROM alumnos 
+                        WHERE matricula = @matricula";
+            return await db.QueryFirstOrDefaultAsync<Alumno>(query, new { Matricula = matricula});
         }
     
         //Inserta un alumno
@@ -52,10 +52,10 @@ namespace APIprueba.Database.Repositorie
             var db = dbConnection();
             
             var query = @"
-                        INSERT INTO public.""Alumnos"" (registro, name, lastname, carrera)
-                        VALUES(@Registro, @Name, @Lastname, @Carrera)";
+                        INSERT INTO alumnos (dni, nombre, apellido)
+                        VALUES(@Dni, @Nombre, @Apellido)";
                 //Execute la query
-            var result = await db.ExecuteAsync(query, new { alumno.Registro, alumno.Name, alumno.Lastname, alumno.Carrera });
+            var result = await db.ExecuteAsync(query, new { alumno.Dni, alumno.Nombre, alumno.Apellido});
 
             //Retorna verdadero si se inserto correctamente
             return result > 0;
@@ -66,14 +66,13 @@ namespace APIprueba.Database.Repositorie
             var db = dbConnection();
             
             var query = @"
-                        UPDATE public.""Alumnos""
-                        SET registro = @Registro,
-                            name = @Name,
-                            lastname = @Lastname,
-                            carrera = @Carrera
-                        WHERE id = @Id;";
+                        UPDATE alumnos
+                        SET dni = @Dni,
+                            nombre = @Nombre,
+                            apellido = @Apellido
+                        WHERE matricula = @Matricula;";
                 //Execute la query
-            var result = await db.ExecuteAsync(query, new { alumno.Id, alumno.Registro, alumno.Name, alumno.Lastname, alumno.Carrera });
+            var result = await db.ExecuteAsync(query, new { alumno.Matricula, alumno.Dni, alumno.Nombre, alumno.Apellido});
 
             //Retorna verdadero si al menos una fila fue afectada
             return result > 0;
@@ -84,10 +83,10 @@ namespace APIprueba.Database.Repositorie
             var db = dbConnection();
             
             var query = @"
-                        DELETE FROM public.""Alumnos""
-                        WHERE id = @Id;";
+                        DELETE FROM alumnos
+                        WHERE matricula = @Matricula;";
                 //Execute la query
-            var result = await db.ExecuteAsync(query, new { Id = alumno.Id });
+            var result = await db.ExecuteAsync(query, new { Matricula = alumno.Matricula });
 
             //Retorna verdadero si al menos una fila fue afectada
             return result > 0;
