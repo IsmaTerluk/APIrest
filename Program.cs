@@ -25,6 +25,7 @@ builder.Services.AddSingleton(postgreSQLConecction);
 //El conecctionString 
 builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
 builder.Services.AddScoped<IMateriaRepository, MateriaRepository>();
+builder.Services.AddScoped<ICarreraRepository, CarreraRepository>();
 
 
 var app = builder.Build();
