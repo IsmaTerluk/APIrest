@@ -1,9 +1,9 @@
 
 //Metodo que elimina un alumno
-function deleteAlumno(id) {
-    fetch(`${uri}/${id}`, {
+function deleteAlumno(matricula) {
+    fetch(`${uri_alumnos}/${matricula}`, {
       method: 'DELETE'
     })
-    .then(() => getAllAlumnos("block"))
+    .then(() => getAllAlumnos())
     .catch(error => console.error('Unable to delete item.', error));
 }

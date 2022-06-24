@@ -2,18 +2,18 @@
 //Metodo que se comunica con la api y envia json con los datos actualizados
 function editAlumno(){
     //Capturamos el id del alumno
-    const aluId = document.getElementById('eid').value;
+    const aluMatricula = document.getElementById('ematricula').value;
 
     //Creamos un objeto alumno
     const alu = {
-        id: parseInt(aluId, 10),
-        name: document.getElementById('ename').value.trim(),
-        lastname: document.getElementById('elastname').value.trim(),
-        carrera: document.getElementById('ecarrera').value.trim(),
-        registro: document.getElementById('eregistro').value.trim(),
+        matricula: parseInt(aluMatricula, 10),
+        dni: document.getElementById('edni').value.trim(),
+        nombre: document.getElementById('enombre').value.trim(),
+        apellido: document.getElementById('eapellido').value.trim(),
+        codigocarrera:document.getElementById('ecarrera').value.trim(),
     };
 
-    fetch(uri, {
+    fetch(uri_alumnos, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -32,5 +32,5 @@ function editAlumno(){
 //Metodo que cierra el modal
 function closeModalEdit() {
     $('#editModal').modal('hide');
-    //getAllAlumnos();
+    getAllAlumnos();
 }

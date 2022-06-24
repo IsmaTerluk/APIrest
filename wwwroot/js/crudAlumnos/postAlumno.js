@@ -13,18 +13,18 @@ function postAlumno(){
     const pname = document.getElementById('postName');
     const plastname = document.getElementById('postLastname');
     const pcarrera = document.getElementById('postCarrera');
-    const pregistro = document.getElementById('postRegistro');
+    const pdni = document.getElementById('postDni');
 
     //Crea un objeto
     const alu = {
-        name: pname.value.trim(),
-        lastname: plastname.value.trim(),
-        carrera: pcarrera.value.trim(),
-        registro: pregistro.value.trim()
+        dni: pdni.value.trim(),
+        nombre: pname.value.trim(),
+        apellido: plastname.value.trim(),
+        codigocarrera: pcarrera.value.trim()
     };
 
     //Metodo que usa js para conectarse con el bakc
-    fetch(uri, {
+    fetch(uri_alumnos, {
         method: 'POST',
         headers: {
           //Lo que acepta como respuesta
@@ -40,12 +40,6 @@ function postAlumno(){
         //Mecanismo que permite conectar con el back de forma async 
         //Mi app puede seguir funcionando mientras se esta haciendo transferencia de datos con el back
         .then(response => response.json())
-        .then(() => {
-          pname.value = '',
-          plastname.value='',
-          pcarrera.value='Carrera'
-          pregistro.value=''
-        })
         //.then(mostrarExito())
         .catch(error => console.error('No se pudo insertar alumno.', error));
 
@@ -56,7 +50,7 @@ function postAlumno(){
 //Metodo que cierra el modal
 function closeModalPost() {
     $('#insertModal').modal('hide');
-    //getAllAlumnos();
+    getAllAlumnos();
 }
 
 

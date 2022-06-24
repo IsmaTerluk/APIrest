@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8mda0JftYLRmoiIx8fjmbRCLgGV5cd4soLah5hZp4Js=",
+  "Hash": "wbn19/CO+zHsIjn1nAApf92Vdsk7+gv52U9NdkoECQ0=",
   "Source": "APIprueba",
   "BasePath": "_content/APIprueba",
   "Mode": "Default",
@@ -34,12 +34,12 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\html\\crudAlumnos.html",
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\html\\admin.html",
       "SourceId": "APIprueba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
       "BasePath": "_content/APIprueba",
-      "RelativePath": "html/crudAlumnos.html",
+      "RelativePath": "html/admin.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,15 +48,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\html\\crudAlumnos.html"
+      "OriginalItemSpec": "wwwroot\\html\\admin.html"
     },
     {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\html\\endpoints.html",
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\html\\alumnos.html",
       "SourceId": "APIprueba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
       "BasePath": "_content/APIprueba",
-      "RelativePath": "html/endpoints.html",
+      "RelativePath": "html/alumnos.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,7 +65,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\html\\endpoints.html"
+      "OriginalItemSpec": "wwwroot\\html\\alumnos.html"
     },
     {
       "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\index.html",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\allAlumnos.js",
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\crudAlumnos\\allAlumnos.js",
       "SourceId": "APIprueba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
       "BasePath": "_content/APIprueba",
-      "RelativePath": "js/allAlumnos.js",
+      "RelativePath": "js/crudAlumnos/allAlumnos.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\allAlumnos.js"
+      "OriginalItemSpec": "wwwroot\\js\\crudAlumnos\\allAlumnos.js"
     },
     {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\deleteAlumno.js",
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\crudAlumnos\\deleteAlumno.js",
       "SourceId": "APIprueba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
       "BasePath": "_content/APIprueba",
-      "RelativePath": "js/deleteAlumno.js",
+      "RelativePath": "js/crudAlumnos/deleteAlumno.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\deleteAlumno.js"
+      "OriginalItemSpec": "wwwroot\\js\\crudAlumnos\\deleteAlumno.js"
     },
     {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\editAlumno.js",
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\crudAlumnos\\editAlumno.js",
       "SourceId": "APIprueba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
       "BasePath": "_content/APIprueba",
-      "RelativePath": "js/editAlumno.js",
+      "RelativePath": "js/crudAlumnos/editAlumno.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\editAlumno.js"
+      "OriginalItemSpec": "wwwroot\\js\\crudAlumnos\\editAlumno.js"
     },
     {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\getAlumno.js",
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\crudAlumnos\\getAlumno.js",
       "SourceId": "APIprueba",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
       "BasePath": "_content/APIprueba",
-      "RelativePath": "js/getAlumno.js",
+      "RelativePath": "js/crudAlumnos/getAlumno.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +150,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\getAlumno.js"
+      "OriginalItemSpec": "wwwroot\\js\\crudAlumnos\\getAlumno.js"
+    },
+    {
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\crudAlumnos\\modal.js",
+      "SourceId": "APIprueba",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
+      "BasePath": "_content/APIprueba",
+      "RelativePath": "js/crudAlumnos/modal.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\crudAlumnos\\modal.js"
+    },
+    {
+      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\crudAlumnos\\postAlumno.js",
+      "SourceId": "APIprueba",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
+      "BasePath": "_content/APIprueba",
+      "RelativePath": "js/crudAlumnos/postAlumno.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\crudAlumnos\\postAlumno.js"
     },
     {
       "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\login.js",
@@ -168,40 +202,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login.js"
-    },
-    {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\modal.js",
-      "SourceId": "APIprueba",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
-      "BasePath": "_content/APIprueba",
-      "RelativePath": "js/modal.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\modal.js"
-    },
-    {
-      "Identity": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\js\\postAlumno.js",
-      "SourceId": "APIprueba",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ismat\\Documents\\ISMA\\TUPW\\3_Año\\1er_Semestre\\Programacion Web II\\APIprueba\\wwwroot\\",
-      "BasePath": "_content/APIprueba",
-      "RelativePath": "js/postAlumno.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\postAlumno.js"
     }
   ]
 }

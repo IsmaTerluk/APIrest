@@ -28,14 +28,13 @@ namespace APIprueba.Database.Repositorie
             var db = dbConnection();
             //El @ me permite escribir la query en varios renglones
             var query = @"
-                        SELECT * 
-                        FROM alumnos
-                        ORDER BY matricula
+                        select *
+                        from alumnos
                         ";
             //Le indico que me traiga una coleccion de alumnos
             return await db.QueryAsync<Alumno>(query, new {});
         }
-
+        
         //Retorna el un unico alumno
         public async Task<Alumno> GetAlumno(int matricula){
             var db = dbConnection();

@@ -15,7 +15,7 @@ function login(){
                 error_pass.style.display ='block';
             }
         }else{
-            window.location.replace("../html/crudAlumnos.html");
+            window.location.replace("../html/admin.html");
         }
     }
 }

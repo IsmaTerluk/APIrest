@@ -16,5 +16,6 @@ namespace APIprueba.Models
         public string? Apellido { get; set; }
 
         public int CodigoCarrera { get; set; }
+
     } 
 }

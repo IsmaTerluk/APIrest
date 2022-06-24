@@ -10,7 +10,7 @@ namespace APIprueba.Database.Repositorie
     {
         //Metodo que retorna todos los alumnos
         public Task<IEnumerable<Alumno>> GetAllAlumnos();
-
+        
         //Retorna el un unico alumno
         Task<Alumno> GetAlumno(int matricula);
     

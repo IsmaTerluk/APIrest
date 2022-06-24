@@ -1,13 +1,16 @@
-const uri = '../api/Alumno';
+const uri_alumnos = '../api/Alumno';
+const uri_carreras ='../api/Carrera';
 //let allAlumnos = [];
 
 //Cuando trabajamos con metodos asincronos hay que capturar el error
 async function getAllAlumnos(){
     try{
-        const response = await fetch(uri);        //Este es la peticion -> Nos responde con una promise(promesa)
-        if(response.status == 200){               //Verifica que el codigo de respuesta sea el 200
-            const alumno = await response.json(); //Este metodo es para poder acceder a la informacion json que nos devuelve la peticion
-            mostrarAlumnos(alumno);   
+        const response_alumnos = await fetch(uri_alumnos);        //Este es la peticion -> Nos responde con una promise(promesa)
+        const response_carreras = await fetch(uri_carreras);
+        if(response_alumnos.status == 200 & response_carreras.status==200){               //Verifica que el codigo de respuesta sea el 200
+            const alumnos = await response_alumnos.json(); //Este metodo es para poder acceder a la informacion json que nos devuelve la peticion
+            const carreras = await response_carreras.json();
+            mostrarAlumnos(alumnos,carreras);   
         }
     }catch(error){
         console.log(error);
@@ -15,7 +18,7 @@ async function getAllAlumnos(){
 }
 
 
-function mostrarAlumnos(alumnos){
+function mostrarAlumnos(alumnos, carreras){
     //Nos traemos el cuerpo de la table
     const body = document.getElementById('section-all-alumnos');
     body.innerHTML = '';
@@ -41,11 +44,11 @@ function mostrarAlumnos(alumnos){
         editButton.setAttribute('data-bs-toggle',`modal` );
         editButton.setAttribute('data-bs-target',`#editModal` );
         //Atributos para poder enviarle al modal los datos
-        editButton.setAttribute('data-id',alu.id );
-        editButton.setAttribute('data-name',alu.name );
-        editButton.setAttribute('data-lastname',alu.lastname );
-        editButton.setAttribute('data-carrera',alu.carrera );
-        editButton.setAttribute('data-registro',alu.registro);
+        editButton.setAttribute('data-matricula',alu.matricula );
+        editButton.setAttribute('data-nombre',alu.nombre );
+        editButton.setAttribute('data-apellido',alu.apellido );
+        editButton.setAttribute('data-carrera',alu.codigoCarrera);
+        editButton.setAttribute('data-dni',alu.dni);
 
         //Boton Eliminar
         let deleteButton = button.cloneNode(false);
@@ -57,28 +60,33 @@ function mostrarAlumnos(alumnos){
             </svg>
         </i>`;
         deleteButton.className = 'btn btn-outline-danger';
-        deleteButton.setAttribute('onclick', `deleteAlumno(${alu.id})`);
+        deleteButton.setAttribute('onclick', `deleteAlumno(${alu.matricula})`);
 
         //Agrega una fila a la tabla
         let tr = body.insertRow();
 
         //Inserta datos en la columa 0
-        tr.insertCell(0).appendChild(document.createTextNode(alu.id));
+        tr.insertCell(0).appendChild(document.createTextNode(alu.matricula));
 
         //Inserta datos en la columa 1
-        tr.insertCell(1).appendChild(document.createTextNode(alu.name + " " + alu.lastname));
+        tr.insertCell(1).appendChild(document.createTextNode(alu.nombre));
 
         //Inserta datos en la columa 2
-        tr.insertCell(2).appendChild(document.createTextNode(alu.carrera));
+        tr.insertCell(1).appendChild(document.createTextNode(alu.apellido));
+
 
         //Inserta datos en la columa 3
-        tr.insertCell(3).appendChild(document.createTextNode(alu.registro));
+        tr.insertCell(3).appendChild(document.createTextNode(alu.dni));
 
-        //Inserta datos en la columa 4
-        tr.insertCell(4).appendChild(editButton);
+
+        //Inserta datos en la columna 4
+        tr.insertCell(4).appendChild(document.createTextNode(carreras[alu.codigoCarrera-100].iniciales));
 
         //Inserta datos en la columa 5
-        tr.insertCell(5).appendChild(deleteButton);
+        tr.insertCell(5).appendChild(editButton);
+
+        //Inserta datos en la columa 6
+        tr.insertCell(6).appendChild(deleteButton);
 
     });
 
