@@ -1,5 +1,12 @@
 body { 
-    background-image: url("https://blog.stockcrowd.com/hubfs/endowment_Blog_Post.png");
+    background-image: url("http://abeecms-prod.beeapi.net/131/f28025ae-6bd4-473b-a566-c55c469174e8");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.sigla{
+    font-family: 'Bayon', sans-serif;
+    font-size: 10vw;
 }
 /* body { 
     background-image: url("https://ucontinental.edu.pe/www/wp-content/uploads/2019/05/fondo.jpg") 
