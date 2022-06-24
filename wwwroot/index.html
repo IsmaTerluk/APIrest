@@ -39,9 +39,8 @@
                 <h4 class="text-center border-bottom border-4 border-white p-2 mb-4">Iniciar Sesión</h4>
                 <form action="javascript:void(0);" method="post" onsubmit="login()">
                     <input type="text" name="" id="user" placeholder="Usuario" class="form-control mb-3 fixed" required>
-                    <p class="text-danger" style="display: none;" id="error_user"> <strong>Usuario incorrecto</strong></p>
                     <input type="password" name="" id="pass" placeholder="Contraseña" class="form-control  mb-3" required>
-                    <p class="text-danger" style="display: none;" id="error_pass"><strong>Contraseña incorrecta</strong></p>
+                    <p class="text-danger text-center" style="display: none;" id="error_user">Los campos no coinciden. Ingrese nuevamente...</p>
                     <div class="text-center">
                         <button type="submit" class="btn btn-dark">
                             Acceder

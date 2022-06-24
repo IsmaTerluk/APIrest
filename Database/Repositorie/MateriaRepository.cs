@@ -30,6 +30,7 @@ namespace APIprueba.Database.Repositorie
             var query = @"
                         SELECT * 
                         FROM materias
+                        ORDER BY codigocarrera
                         ";
             //Le indico que me traiga una coleccion de alumnos
             return await db.QueryAsync<Materia>(query, new {});

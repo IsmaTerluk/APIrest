@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/crudAlumnos/allAlumnos.js"></script>
-    <script src="../js/crudAlumnos/editAlumno.js"></script>
-    <script src="../js/crudAlumnos//modal.js"></script>
-    <script src="../js/crudAlumnos/deleteAlumno.js"></script>
-    <script src="../js/crudAlumnos/postAlumno.js"></script>
-    <script src="../js/crudAlumnos/getAlumno.js"></script>
+    <script src="../js/crudMaterias/allMaterias.js"></script>
+    <script src="../js/crudMaterias/editMateria.js"></script>
+    <script src="../js/crudMaterias/modalMateria.js"></script>
+    <script src="../js/crudMaterias/getMateria.js"></script>
+    <script src="../js/crudMaterias/postMateria.js"></script>
+    <script src="../js/crudMaterias/deleteMateria.js"></script>
     <title>ABMA - Admin</title>
 </head>
 <body>
@@ -41,18 +41,25 @@
     </nav>
 
     <script type="text/javascript">
-        getAllAlumnos();
+        getAllMaterias();
     </script>
         
 
     <section class="container mt-3">
 
-        <!-- Formulario para ingresar el id del alumno a obtener -->
-        <div class="container mb-4 d-flex " id="unAlumno"> 
-
-            <form action="javascript:void(0);" method="post" onsubmit="obtenerAlumno()"  style="width: 50%;">
+        <!-- Formulario para ingresar los datos de la materia a obtener -->
+        <div class="container mb-4 d-flex " id="unaMateria"> 
+            <h6>Buscar materia:</h6>
+            <form action="javascript:void(0);" method="post" onsubmit="obtenerMateria()"  style="width: 50%;">
+                
                 <div class="d-flex">
-                    <input type="number" class="form-control rounded-pill mx-2" id="matricula" placeholder="Ingrese matricula del alumno" required>
+                    <select class="form-select" style="width: 55%;" id="codigocarrera" required>
+                        <option selected>Carrera </option>
+                        <option value="100">LCC</option>
+                        <option value="101">LSI</option>
+                        <option value="102">TUPW</option>
+                    </select>
+                    <input type="number" class="form-control mx-2" id="codigomateria" placeholder="Ingrese codigo de materia" required>
                     <button type="submit" class="btn btn-light rounded-pill">
                         <i class="bi bi-search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" fill="currentColor" class="bi bi-search" viewBox="1 -3 15 20">
@@ -65,18 +72,17 @@
 
 
             <div style="width: 50%" class="d-flex justify-content-center">
-                <!-- Cards que se muestra si existe el ID alumno -->
-                <div class="container border p-2 rounded border-success" style="width: 50%; display:none; background-color: #d1e7dd;" id="alumno">
+                <!-- Cards que se muestra si existe la materia -->
+                <div class="container border p-2 rounded border-success" style="width: 50%; display:none; background-color: #d1e7dd;" id="materia">
                     <div class="d-flex flex-column text-center">
-                        <h5 class="border-bottom border-2 border-white"> <span id="gname"> </span> </h5>
-                        <p> <b>Carrera:</b> <span id="gcarrera"></span> </p>
-                        <p> <b>Matricula: </b> <span id="gregistro"></span> </p>
+                        <h5 class="border-bottom border-2 border-white"> <span id="gnamemateria"> </span> </h5>
+                        <p> <b>Dictado:</b> <span id="ganio">° año</span> </p>
                     </div>
                 </div>
             
                 <!-- Mensaje de error en caso que el ID alumno falle -->
-                <div class="text-center" style="display:none;" id="msj_error">
-                    <p class="text-danger"> <strong>Matricula alumno invalido</strong></p>
+                <div class="text-center" style="display:none;" id="msj_error_materia">
+                    <p class="text-danger"> <strong>Datos incorrectos </strong></p>
                 </div>
             </div>
             
@@ -85,55 +91,55 @@
         </div>
 
         <div class="container mb-5 ">
-            <table class="table table-success table-hover border-white" id="getAlumnos">
+            <table class="table table-success table-hover border-white" id="getMaterias">
                 <thead class="bg-dark">
                     <tr class="text-center">
-                        <th scope="col">Matricula</th>
-                        <th scope="col">Apellido</th>
+                        <th scope="col">Codigo</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Dni</th>
+                        <th scope="col">Dictado</th>
                         <th scope="col">Carrera</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Eliminar</th>
                     </tr>
                 </thead>
-                <tbody class="text-center" id="section-all-alumnos"></tbody>
+                <tbody class="text-center" id="section-all-materias"></tbody>
             </table> 
         </div>
 
         <div class="mb-2  text-center">
-            <button class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#insertModal">
-                Inscribir nuevo alumno
+            <button class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#insertModalMateria">
+                Agregar nueva materia
             </button>
         </div>
 
     </section>
+    <script type="text/javascript">
+        getAllMaterias();
+    </script>
 
-<!-- Modal Edit alumno -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Edit materia -->
+<div class="modal fade" id="editModalMateria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar alumno</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Editar materia</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="container mt-3">
-            <form action="javascript:void(0);" method="post" onsubmit="editAlumno()" class="container">
+            <form action="javascript:void(0);" method="post" onsubmit="editMateria()" class="container">
             <div class="d-flex justify-content-around mb-3">
-                <input type="text" class="form-control" id="enombre" placeholder="Nombre" required style="width: 45%;">
-                <input type="text" class="form-control" id="eapellido" placeholder="Apellido" style="width: 45%;"required>
+                <input type="number" class="form-control" id="ecodigomat" placeholder="Codigo" style="width: 45%;" required disabled>
+                <input type="text" class="form-control" id="enombremat" placeholder="Materia" style="width: 45%;"required>
             </div>
             <div class="d-flex justify-content-around mb-3">
-                <input type="number" id="edni" class="form-control" placeholder="Dni" required style="width: 45%;">
-                <select class="form-select" required style="width: 45%;" id="ecarrera">
+                <input type="number" id="eaniomat" class="form-control" placeholder="Año de dictado" required style="width: 45%;">
+                <select class="form-select" required style="width: 45%;" id="ecarreramat" disabled>
                     <option selected>Carrera</option>
                     <option value="100">LCC</option>
                     <option value="101">LSI</option>
                     <option value="102">TUPW</option>
                 </select>
             </div>
-
-            <input type="hidden" id="ematricula">
 
             <div class="text-center mb-3">
                 <input type="submit" class="btn btn-outline-info" style="width:20%;" value="Editar">
@@ -145,23 +151,23 @@
 </div>
 
 
-<!-- Modal insert alumno -->
-<div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal insert mateira -->
+<div class="modal fade" id="insertModalMateria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Inscribir alumno</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Materia</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="container mt-3">
-                <form action="javascript:void(0);" method="post" onsubmit="postAlumno()"  class="container">
+                <form action="javascript:void(0);" method="post" onsubmit="postMateria()"  class="container">
                     <div class="d-flex justify-content-around mb-3">
-                        <input type="text" class="form-control" id="postLastname" placeholder="Apellido" style="width: 45%;"required>
-                        <input type="text" class="form-control" id="postName" placeholder="Nombre" required style="width: 45%;">
+                        <input type="text" class="form-control" id="postCodigo" placeholder="Codigo de materia" style="width: 45%;"required>
+                        <input type="text" class="form-control" id="postNombre" placeholder="Nombre" required style="width: 45%;">
                     </div>
                     <div class="d-flex justify-content-around mb-3">
-                        <input type="number" id="postDni" class="form-control" placeholder="Dni" required style="width: 45%;">
-                        <select class="form-select" id="postCarrera" required style="width: 45%;">
+                        <input type="number" id="postAnio" class="form-control" placeholder="Año de dictado" required style="width: 45%;">
+                        <select class="form-select" id="postCarreraMateria" required style="width: 45%;">
                             <option selected>Carrera</option>
                             <option value="100">LCC</option>
                             <option value="101">LSI</option>
@@ -169,7 +175,7 @@
                         </select>
                     </div>
                     <div class="text-center mb-3">
-                        <input type="submit" class="btn btn-outline-success rounded-pill" style="width:20%;" value="Inscribir">
+                        <input type="submit" class="btn btn-outline-success rounded-pill" style="width:20%;" value="Agregar">
                     </div>
                 </form>
             </div> 
