@@ -40,6 +40,10 @@ function postMateria(){
         //Mecanismo que permite conectar con el back de forma async 
         //Mi app puede seguir funcionando mientras se esta haciendo transferencia de datos con el back
         .then(response => response.json())
+        .then(pcodigo.value='')
+        .then(pnombre.value='')
+        .then(panio.value='')
+        .then(pcarrera.value='')
         //.then(mostrarExito())
         .catch(error => console.error('No se pudo insertar alumno.', error));
 

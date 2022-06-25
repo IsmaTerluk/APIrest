@@ -80,7 +80,7 @@ function mostrarMateriasInscritpas(materias, inscriptos){
 
         //Button
         const button = document.createElement("button");
-        button.classList.add("btn", "btn-sm", "btn-outline-secondary");
+        button.classList.add("btn", "btn-sm", "btn-outline-danger");
         button.textContent = "De baja";
         button.setAttribute('onclick', `bajaAlumno(${matricula}, ${cod_carrera}, ${mat.codigoMateria})`);
 

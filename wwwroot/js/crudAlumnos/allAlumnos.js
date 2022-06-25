@@ -63,7 +63,9 @@ function mostrarAlumnos(alumnos, carreras){
         deleteButton.setAttribute('onclick', `deleteAlumno(${alu.matricula})`);
 
         //Agrega una fila a la tabla
-        let tr = body.insertRow();
+        //const tr = document.createElement("tr")
+        //tr.classList.add("color-danger");
+        tr = body.insertRow()
 
         //Inserta datos en la columa 0
         tr.insertCell(0).appendChild(document.createTextNode(alu.matricula));

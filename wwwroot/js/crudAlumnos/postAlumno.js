@@ -40,17 +40,17 @@ function postAlumno(){
         //Mecanismo que permite conectar con el back de forma async 
         //Mi app puede seguir funcionando mientras se esta haciendo transferencia de datos con el back
         .then(response => response.json())
-        //.then(mostrarExito())
+        .then(closeModalPost())
+        .then(getAllAlumnos())
         .catch(error => console.error('No se pudo insertar alumno.', error));
 
-        closeModalPost();
+        ;
 }
 
 
 //Metodo que cierra el modal
 function closeModalPost() {
     $('#insertModal').modal('hide');
-    getAllAlumnos();
 }
 
 

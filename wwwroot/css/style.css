@@ -1,7 +1,7 @@
 body { 
     background-image: url("http://abeecms-prod.beeapi.net/131/f28025ae-6bd4-473b-a566-c55c469174e8");
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-repeat:repeat;
 }
 
 .sigla{
