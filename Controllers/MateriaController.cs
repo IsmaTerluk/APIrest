@@ -26,6 +26,11 @@ public class MateriaController : ControllerBase
        return Ok(await _materiaRepository.GetAllMaterias());
     }
 
+    [HttpGet("{codigocarrera}")]
+    public async Task<IActionResult> GetAllMateriasCarrera(int codigocarrera){
+       return Ok(await _materiaRepository.GetAllMateriasCarrera(codigocarrera));
+    }
+
     //Recibe 2 parametros que son los que se reciben en la funcion
     [HttpGet("{codigocarrera}/{codigomateria}")]
     public async Task<IActionResult> GetMateria(int codigocarrera, int codigmomateria){

@@ -42,24 +42,37 @@
     </nav>
 
     <script type="text/javascript">
-        obtenerMatricula()
+        obtenerAlumno()
     </script>
 
-    <h3 class="text-center mb-3">Bienvenido <span id="user" style="color:#3B8194 ;"></span> </h3>
+    <section class="container d-flex justify-content-between mb-3">
+        <h3 id="user" style="color:#3B8194 ;"> </h3>
+        <p> <strong>Carrera: </strong> <span id="name-carrera"></span></p>
+    </section>
 
-    <section class=" border d-flex justify-content-between">
+    <section class=" border d-flex justify-content-around">
 
         <div class="">
-            <h4>Inscripcion a materias</h4>
+            <h5 class="text-center">Inscripcion a materias</h5>
+                <script type="text/javascript">
+                    materiasPorInscribirse()
+                </script>
+                <div id="section-materias-para-inscribirse">
+                    <!-- Tarjetas credas desde el script s-->
+                </div>
         </div>
 
         <div class="">
-            <h4>Materias en curso </h4>
+            <h5 class="text-center">Materias en curso </h5>
+                <script type="text/javascript">
+                    materiasInscripto()
+                </script>
+
+            <div id="section-materias-inscripto">
+                <!-- Tarjetas credas desde el script s-->
+            </div>
         </div>        
 
-        <div class="">
-            <h4>Materias rendidas </h4>
-        </div> 
 
     </section>
 

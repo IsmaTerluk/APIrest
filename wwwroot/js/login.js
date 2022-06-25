@@ -16,7 +16,7 @@ async function login(){
             if(response.status == 200){
                 const alumno = await response.json();
                 if(pass=='alumno'){
-                    window.location.replace("../html/homealumno.html?matricula="+alumno.matricula);
+                    window.location.replace("../html/homealumno.html?matri="+alumno.matricula+"&carrera="+alumno.codigoCarrera);
                 }else{
                     error_user.style.display ='block';
                 }

@@ -36,6 +36,20 @@ namespace APIprueba.Database.Repositorie
             return await db.QueryAsync<Materia>(query, new {});
         }
 
+         public async Task<IEnumerable<Materia>> GetAllMateriasCarrera(int codigocarrera){
+            //Conexion a la base de datos
+            var db = dbConnection();
+            //El @ me permite escribir la query en varios renglones
+            var query = @"
+                        SELECT * 
+                        FROM materias 
+                        WHERE codigocarrera = @codigocarrera
+                        ORDER BY anio
+                        ";
+            //Le indico que me traiga una coleccion de alumnos
+            return await db.QueryAsync<Materia>(query, new {Codigocarrera=codigocarrera});
+        }
+
         //Retorna el un unico alumno
         public async Task<Materia> GetMateria(int codigocarrera, int codigomateria){
             var db = dbConnection();

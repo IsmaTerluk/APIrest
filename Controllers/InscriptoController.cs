@@ -28,9 +28,9 @@ public class InscriptoController : ControllerBase
     }
 
     //Recibe un parametro que es el que agrega al parametro
-    [HttpGet("{matricula}")]
-    public async Task<IActionResult> GetInscripto(int matricula){
-       return Ok(await _inscriptoRepository.GetInscripto(matricula));
+    [HttpGet("{matricula}/{codigocarrera}")]
+    public async Task<IActionResult> GetInscriptoCarrera(int matricula,int codigocarrera){
+       return Ok(await _inscriptoRepository.GetInscriptoCarrera(matricula,codigocarrera));
     }
 
     [HttpPost]

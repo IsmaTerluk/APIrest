@@ -13,6 +13,8 @@ namespace APIprueba.Database.Repositorie
 
         //Retorna el un unico alumno
         Task<Materia> GetMateria(int codigocarrera, int codigomateria);
+
+        Task<IEnumerable<Materia>> GetAllMateriasCarrera(int codigocarrera);
     
         //Inserta un alumno
         Task<bool> InsertMateria(Materia materia);

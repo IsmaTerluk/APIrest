@@ -36,17 +36,16 @@ namespace APIprueba.Database.Repositorie
         }
 
         //Retorna el un unico alumno
-        public async  Task<IEnumerable<Inscripto>> GetInscripto(int matricula){
+        public async  Task<IEnumerable<Inscripto>> GetInscriptoCarrera(int matricula, int codigocarrera){
             var db = dbConnection();
             
             var query = @"
                         SELECT * 
                         FROM inscriptos 
-                        WHERE matricula = @matricula";
-            return await db.QueryAsync<Inscripto>(query, new { Matricula = matricula});
+                        WHERE matricula = @matricula and codigocarrera = @codigocarrera";
+            return await db.QueryAsync<Inscripto>(query, new { Matricula = matricula, CodigoCarrera = codigocarrera});
         }
     
-        //Inserta un alumno
         public async Task<bool> InsertInscripto(Inscripto inscripto){
             var db = dbConnection();
             
